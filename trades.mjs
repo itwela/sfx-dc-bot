@@ -14,7 +14,17 @@ app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 
-// Now you can define your routes and middleware using 'app'
+// Define the convertToEST function globally
+function convertToEST(timestamp) {
+  const date = new Date(timestamp);
+  const estOffset = -5 * 60 * 60 * 1000; // EST offset is -5 hours from UTC
+
+  // Adjust the date by adding the EST offset
+  date.setTime(date.getTime() + estOffset);
+
+  // Format the date as a string
+  return date.toISOString(); // Adjust this format as needed
+}
 
 // Access the bot token from environment variables
 const botToken = process.env.DISCORD_TOKEN;
@@ -63,18 +73,6 @@ bot.on('messageCreate', (message) => {
         timestamp: convertToEST(message.createdTimestamp),
       };
 
-      // Function to format a timestamp to EST
-      function convertToEST(timestamp) {
-        const date = new Date(timestamp);
-        const estOffset = -5 * 60 * 60 * 1000; // EST offset is -5 hours from UTC
-      
-        // Adjust the date by adding the EST offset
-        date.setTime(date.getTime() + estOffset);
-      
-        // Format the date as a string
-        return date.toISOString(); // Adjust this format as needed
-      }
-
       // Log the received data
       console.log(data);
 
@@ -89,7 +87,6 @@ bot.on('messageCreate', (message) => {
     }
   }
 }); 
-
 
 app.get('/', (req, res) => {
   res.send('Hello, World!'); // Replace with the desired response
