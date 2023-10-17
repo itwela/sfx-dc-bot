@@ -7,7 +7,6 @@ import { config } from 'dotenv';
 config();
 
 const port = process.env.PORT || 3000; // Use the PORT environment variable if available, or use port 3000 as a default
-
 const app = express(); // Create an instance of express
 
 app.listen(port, () => {
@@ -38,7 +37,27 @@ const bot = new Client({ intents: [
 
 bot.on('ready', () => {
   console.log(`Logged in as ${bot.user.tag}`);
+
+  // Start pinging the backend server every 14 minutes (14 * 60 * 1000 milliseconds)
+  setInterval(pingBackendServer, 14 * 60 * 1000);
 });
+
+// Function to ping the backend server
+const pingBackendServer = async () => {
+  try {
+    const response = await fetch('https://sfx-backend.onrender.com/bot-messages', {
+      method: 'GET',
+    });
+
+    if (response.ok) {
+      console.log('Ping successful');
+    } else {
+      console.error('Ping failed');
+    }
+  } catch (error) {
+    console.error('Ping failed with an error:', error);
+  }
+};
 
 // Event listener for when a message is received
 bot.on('messageCreate', (message) => {
