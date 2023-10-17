@@ -78,5 +78,10 @@ bot.on('messageCreate', (message) => {
   }
 }); 
 
+
+app.get('/', (req, res) => {
+  res.send('Hello, World!'); // Replace with the desired response
+});
+
 // Log in to the Discord server using your bot's token
 bot.login(botToken);
