@@ -8,6 +8,6 @@
   },
   "scripts": {
     "start": "nodemon trades.js",
-    "build": "npm i"
+    "build": "npm ci"
   }
 }
