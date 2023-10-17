@@ -7,7 +7,7 @@
     "nodemon": "^3.0.1"
   },
   "scripts": {
-    "start": "nodemon trades.js",
+    "start": "nodemon trades.mjs",
     "build": "npm ci"
   }
 }

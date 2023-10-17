@@ -1,6 +1,6 @@
-const { config } = require('dotenv');
-const { Client, GatewayIntentBits } = require('discord.js');
-const fetch = require('node-fetch');
+import { Client, GatewayIntentBits } from "discord.js";
+import fetch from 'node-fetch';
+import { config } from 'dotenv';
 
 // Load environment variables from .env
 config();
