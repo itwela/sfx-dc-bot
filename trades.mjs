@@ -5,6 +5,9 @@ import { config } from 'dotenv';
 // Load environment variables from .env
 config();
 
+// Access the bot token from environment variables
+const botToken = process.env.DISCORD_TOKEN;
+
 const bot = new Client({ intents: [
   GatewayIntentBits.GuildMessages, 
   GatewayIntentBits.Guilds, 
