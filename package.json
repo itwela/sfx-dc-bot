@@ -1,19 +1,7 @@
 {
   "dependencies": {
-    "body-parser": "^1.20.2",
-    "cors": "^2.8.5",
     "discord.js": "^14.13.0",
     "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "node-fetch": "^3.3.2",
-    "nodemon": "^3.0.1",
-    "ws": "^8.14.2"
-  },
-  "scripts": {
-    "start": "nodemon trades.js",
-    "build": "npm i"
-  },
-  "devDependencies": {
-    "concurrently": "^8.2.1"
+    "node-fetch": "^3.3.2"
   }
 }
