@@ -1,9 +1,20 @@
 import { Client, GatewayIntentBits } from "discord.js";
+import express from 'express'; // Import express
 import fetch from 'node-fetch';
 import { config } from 'dotenv';
 
 // Load environment variables from .env
 config();
+
+const port = process.env.PORT || 3000; // Use the PORT environment variable if available, or use port 3000 as a default
+
+const app = express(); // Create an instance of express
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+
+// Now you can define your routes and middleware using 'app'
 
 // Access the bot token from environment variables
 const botToken = process.env.DISCORD_TOKEN;
@@ -69,4 +80,3 @@ bot.on('messageCreate', (message) => {
 
 // Log in to the Discord server using your bot's token
 bot.login(botToken);
-//  https://discord.com/api/oauth2/authorize?client_id=1154101704309084272&permissions=8&redirect_uri=https%3A%2F%2Fdiscordapp.com%2Foauth2%2Fauthorize%3F%26client_id%3D1154101704309084272%26scope%3Dbot&response_type=code&scope=identify%20connections%20email%20guilds%20guilds.join%20guilds.members.read%20gdm.join%20rpc%20rpc.notifications.read%20rpc.screenshare.read%20bot%20webhook.incoming%20messages.read%20activities.read%20dm_channels.read
