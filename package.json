@@ -8,6 +8,6 @@
   },
   "scripts": {
     "start": "nodemon trades.mjs",
-    "build": "npm ci"
+    "build": "npm i"
   }
 }
