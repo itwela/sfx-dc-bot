@@ -10,7 +10,7 @@
     "ws": "^8.14.2"
   },
   "scripts": {
-    "start": "nodemon trades.mjs",
+    "start": "nodemon trades.js",
     "build": "npm i"
   },
   "devDependencies": {
