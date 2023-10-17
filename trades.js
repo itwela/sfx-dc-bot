@@ -1,4 +1,4 @@
-import { config } from 'dotenv';
+const { config } = require('dotenv');
 const { Client, GatewayIntentBits } = require('discord.js');
 const fetch = require('node-fetch');
 
