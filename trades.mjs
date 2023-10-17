@@ -60,8 +60,19 @@ bot.on('messageCreate', (message) => {
       const data = {
         content: message.content,
         author: message.author.username,
-        timestamp: message.createdTimestamp,
+        timestamp: formatTimestamp(message.createdTimestamp),
       };
+
+      // Function to format a timestamp to EST
+      function formatTimestamp(timestamp) {
+        const date = new Date(timestamp);
+        
+        // Set the time zone to Eastern Standard Time (EST)
+        date.toLocaleString('en-US', { timeZone: 'America/New_York' });
+
+        // Format the date as a string
+        return date.toLocaleString();
+      }
 
       // Log the received data
       console.log(data);
